@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flights</title>
+    <link rel="stylesheet" href="flights_page_style.css" />
+  </head>
+  <body>
+    <div class="admin-features">
+      <form class="admin" id="add-flight-form">
+        <h2>Add a New Flight</h2>
+        <label for="from">from:</label>
+        <input type="text" id="from" required /><br />
+
+        <label for="to">to:</label>
+        <input type="text" id="to" required /><br />
+
+        <label for="price">price:</label>
+        <input type="number" id="price" required /><br />
+
+        <label for="depart">depart:</label>
+        <input type="date" id="depart" required /><br />
+
+        <label for="return">return:</label>
+        <input type="date" id="return" required /><br />
+
+        <label for="img">Image URL:</label>
+        <input type="url" id="img" /><br />
+
+        <button type="submit">Add Flight</button>
+      </form>
+      <button id="logout">Logout</button>
+
+      <label for="search">Search Flight:</label>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search by departure and destination location"
+      />
+      <button id="sort-by-price">Sort by Price</button>
+    </div>
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Edit Flight</h2>
+
+        <label for="editFrom">From:</label>
+        <input type="text" id="editFrom" required /><br />
+
+        <label for="editTo">To:</label>
+        <input type="text" id="editTo" required /><br />
+
+        <label for="editPrice">Price:</label>
+        <input type="number" id="editPrice" required /><br />
+
+        <label for="editDepart">Depart:</label>
+        <input type="date" id="editDepart" required /><br />
+
+        <label for="editReturn">Return:</label>
+        <input type="date" id="editReturn" required /><br />
+
+        <button onclick="saveChanges()">Save Changes</button>
+      </div>
+    </div>
+
+    <div id="flight-list"></div>
+    <script src="flights.js"></script>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+        <title>Flight List</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+          }
+          #flight-list {
+            max-width: 800px;
+            margin: 0 auto;
+          }
+          .flight {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+          }
+          .flight img {
+            max-width: 100px;
+          }
+          .flight-info {
+            font-weight: bold;
+          }
+        </style>
+      </head>
+    <body>
+
+<div class="admin-features">
+
+            <!-- 1. Admin Features:
+// to add flights,  -->
+
+    <form class="admin" id="add-flight-form">
+        <h2>Add a New Flight</h2>
+        <label for="from">from:</label>
+        <input type="text" id="from" required /><br />
+
+        <label for="to">to:</label>
+        <input type="text" id="to" required /><br />
+
+        <label for="price">price:</label>
+        <input type="number" id="price" required /><br />
+
+        <label for="depart">depart:</label>
+        <input type="date" id="depart" required /><br />
+
+        <label for="return">return:</label>
+        <input type="date" id="return" required /><br />
+
+        <label for="img">Image URL:</label>
+        <input type="url" id="img" required /><br />
+
+        <button type="submit">Add Flight</button>
+      </form>
+
+              <!-- If admin, provide options to update price. -->
+
+</div>
+
+
+
+
+
+
+   
+    
+
+ <!--          provide options to search, and sort flights(price),  -->
+        <!-- 2.allow access    to search and sort flights (price) only. -->
+
+        <label for="search"
+        >Search by departure and destination locations:</label
+      >
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search by departure and destination location"
+      />
+      <button id="sort-by-price">Sort by Price</button>
+    </div>
+
+    <div id="flight-list"></div>
+
+    
+        <script>
+            const flights = [
+    {
+        from: "Tel aviv",
+        to:'amsterdam',
+        price: 40,
+        dates:[
+            {depart: new Date ('24.11.2023')},
+            {return: new Date ('1.12.2023')}
+        ]
+    },
+    {
+        from: "Tel aviv",
+        to:'london',
+        price: 75,
+        dates:[
+            {depart: new Date ('28.11.2023')},
+            {return: new Date ('12.12.2023')}
+        ]
+    },
+    {
+        from: "Athens",
+        to:'Prague',
+        price: 95,
+        dates:[
+            {depart: new Date ('28.11.2023')},
+            {return: new Date ('12.12.2023')}
+        ]
+    },
+    {
+        from: "Berlin",
+        to:'Prague',
+        price: 22,
+        dates:[
+            {depart: new Date ('28.11.2023')},
+            {return: new Date ('12.12.2023')}
+        ]
+    },
+    {
+        from: "London",
+        to:'Berlin',
+        price: 100,
+        dates:[
+            {depart: new Date ('28.11.2023')},
+            {return: new Date ('12.12.2023')}
+        ]
+    }
+]
+
+const flightListContainer = document.getElementById("flight-list");
+
+function showFlights(flights){
+    flightListContainer.innerHTML = "";
+    flights.forEach(flight => {
+
+        const flightCard = document.createElement("div");
+        flightCard.classList.add("flight");
+    
+        const fromP = document.createElement("p");
+        fromP.textContent = "from: " + flight.from;
+        flightCard.appendChild(fromP);
+
+        const toP = document.createElement("p");
+        toP.textContent ="to: "+ flight.to;
+        flightCard.appendChild(toP);
+
+        const priceP = document.createElement("p");
+        priceP.textContent = "price: "+ flight.price;
+        flightCard.appendChild(priceP);
+
+        const departDate = flight.date[0].depart;  
+        const returnDate = flight.date[1].return;
+        
+        const departP = document.createElement("p");
+        departP.textContent = "Departure Date: " + departDate.toLocaleDateString();
+        flightCard.appendChild(departP);
+
+        const returnP = document.createElement("p");
+        returnP.textContent = "Return Date: " + returnDate.toLocaleDateString();
+        flightCard.appendChild(returnP);
+
+        flightListContainer.appendChild(flightCard);
+    });
+
+}
+
+showFlights(flights);
+        </script>
+      </body>
+    </html>
+

@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+#flight-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.flight {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+.flight img {
+  max-width: 100px;
+}
+.flight-info {
+  font-weight: bold;
+}
+
+.admin {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-flight-form > input,
+button {
+  width: 100px;
+}
+
+.admin.hidden,
+.modal.hidden {
+  display: none !important;
+}
+#logout {
+  /* display: block; */
+  margin: 0 auto;
+  background-color: #0062e3;
+  color: white;
+  padding: 7px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#logout:hover {
+  background-color: #0050b8;
+}
